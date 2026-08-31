@@ -18,20 +18,18 @@ st.caption("설계 엔지니어링 업무의 단계 간 지식 인수인계 지�
 # Excel 불러오기
 # =========================================================
 
-FILE_NAME = "handover_data.xlsx"
+from pathlib import Path
+
+FILE_NAME = Path(__file__).parent / "handover_data.xlsx"
 
 
 @st.cache_data
 def load_data():
-
     sheets = pd.read_excel(
         FILE_NAME,
         sheet_name=None
     )
-
     return sheets
-
-
 try:
     data = load_data()
 
